@@ -13,7 +13,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-application/vendor
+/vendor
 
 # composer itself is not needed
 composer.phar
@@ -31,12 +31,4 @@ tests/_support/_generated
 
 #vagrant folder
 /.vagrant
-
-local
-
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+.env

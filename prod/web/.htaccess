@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+Options +FollowSymLinks
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+RewriteRule ^(.*)$ index.php [L,QSA]
+AddDefaultCharset UTF8

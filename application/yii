@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Dotenv\Dotenv;
+
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/.env');
+
+$appEnv = $_ENV['APP_ENV'] ?? 'production';
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', $appEnv);
+
+if ($appEnv !== 'dev') {
+    die('You are not allowed to access this file.');
+}
+
+$config = require __DIR__ . '/config/console.php';
+
+$application = new yii\console\Application($config);
+$exitCode = $application->run();
+exit($exitCode);
